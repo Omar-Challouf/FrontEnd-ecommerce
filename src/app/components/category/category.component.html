@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<ul class="mt-5" *ngIf=category >
+  <span *ngFor="let product of category">
+    <li class="mt-5" >{{product.id}}</li>
+    <li class="mt-1">{{product.name}}</li>
+    <li class="mt-1">{{product.categoryName}}</li>
+    <li class="mt-1">{{product.categoryDTO}}</li>
+    <li class="mt-1">{{product.prix}}</li>
+    <li class="mt-1">{{product.disponible}}</li>
+    <li class="mt-1">{{product.description}}</li>
+    <li class="mt-1">{{product.dateSortie}}</li>
+    <li class="mt-1">{{product.pathUrlImage}}</li>
+  </span>
+
+</ul>
