@@ -8,6 +8,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsDetailComponent } from './components/products-detail/products-detail.component';
 import { CategoryComponent } from './components/category/category.component';
+import { SearchPipe } from './search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { CategoryComponent } from './components/category/category.component';
     ContactComponent,
     HomeComponent,
     ProductsDetailComponent,
-    CategoryComponent
+    CategoryComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

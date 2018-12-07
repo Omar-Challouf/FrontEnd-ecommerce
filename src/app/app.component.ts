@@ -10,7 +10,6 @@ export class AppComponent {
 
   title: string = 'ecommerce';
   private categories;
-
   private products;
 
   constructor(private productsService: ProductsService) { }
@@ -22,6 +21,7 @@ export class AppComponent {
     /* this.products = this.productsService.getProductsStatic(); */
     this.productsService.getCategory()
     .subscribe((res)=>this.categories=res)
+
   }
   
 

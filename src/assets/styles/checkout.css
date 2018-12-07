@@ -26,13 +26,12 @@
 2. Body and some general stuff
 *********************************/
 
-*
 {
 	margin: 0;
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
-	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	-webkit-text-shadow: rgba(161, 55, 55, 0.01) 0 0 1px;
+	text-shadow: rgba(197, 9, 9, 0.01) 0 0 1px;
 }
 body
 {
@@ -229,7 +228,7 @@ section
 {
 	width: 178px;
 	height: 61px;
-	background: none;
+	background-color: black;
 	text-align: center;
 	border: solid 2px #1b1b1b;
 	overflow: hidden;
@@ -283,7 +282,7 @@ section
 }
 .button_light::after
 {
-	background: #FFFFFF;
+	background: #1b1b1b;
 }
 .button_light a
 {

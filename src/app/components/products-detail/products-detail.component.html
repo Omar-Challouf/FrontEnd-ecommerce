@@ -27,7 +27,10 @@
               <!-- In Stock -->
               <div class="in_stock_container">
                 <div class="availability">Availability:</div>
-                <span>In Stock</span>
+                <span *ngIf="product.disponible=='1';then thenBlock else elseBlock"></span>
+                <ng-template #thenBlock ><span style="color:green"> Stock </span></ng-template>
+                <ng-template #elseBlock><span style="color:red"> Out of the stock </span>out of Stock</ng-template>
+                
               </div>
               <div class="details_text">
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.</p>

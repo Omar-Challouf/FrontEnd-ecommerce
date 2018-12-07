@@ -289,6 +289,10 @@ section
 {
 	color: #FFFFFF;
 }
+.button_dark a
+{
+	color: #000000;
+}
 .button:hover a
 {
 	color: #FFFFFF;

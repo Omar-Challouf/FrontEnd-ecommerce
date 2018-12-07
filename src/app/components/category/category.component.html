@@ -3,7 +3,7 @@
 <br>
 <br>
 <br>
-<ul class="mt-5" *ngIf=category >
+<<!----ul class="mt-5" *ngIf=category >
   <span *ngFor="let product of category">
     <li class="mt-5" >{{product.id}}</li>
     <li class="mt-1">{{product.name}}</li>
@@ -16,4 +16,23 @@
     <li class="mt-1">{{product.pathUrlImage}}</li>
   </span>
 
-</ul>
+</ul>-->
+<div class="row"  >
+  
+  <div class="col-lg-3 ml-5 mt-2" *ngFor="let product of category">
+
+      <div class="card ml-5" style="width: 18rem;">
+      <img class="card-img-top" src="{{product.pathUrlImage}}" alt="Card image cap">
+      <div class="card-body">
+       <h5 class="card-title">{{product.name}}</h5>
+  <p class="card-text "> {{product.description}}</p>
+ <br/>   
+ <p style="color:red;">Price:{{product.prix}} DT</p>
+  <button
+  (click) ="addToCart()"
+  class="btn btn-primary">acheter</button>
+</div>
+</div>
+</div>
+
+</div>

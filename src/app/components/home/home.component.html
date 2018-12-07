@@ -2,22 +2,27 @@
 <!-- Home -->
 
 	<div class="home">
-		<div class="home_slider_container">
 			
-			<!-- Home Slider -->
-			<div class="owl-carousel owl-theme home_slider">
+	  <span *ngIf="productsWithRemise">
+		<div class="home_slider_container" >
 				
+					
+					
+				
+			<!-- Home Slider -->
+			<div class="owl-carousel owl-theme home_slider" >
 				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(./assets/images/home_slider_1.jpg)"></div>
+			 <div class="owl-item home_slider_item">
+					<div class="home_slider_background" [ngStyle]="{'background-image': 'url(' + productsWithRemise[2].pathUrlImage + ')'}"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
 								<div class="col">
 									<div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-										<div class="home_slider_title">A new Online Shop experience.</div>
-										<div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-										<div class="button button_light home_button"><a href="#">Shop Now</a></div>
+										<div class="home_slider_title" style="color:black;">{{productsWithRemise[2].name}}</div>
+										<div class="home_slider_subtitle"style="color:black;">{{productsWithRemise[2].description}}</div>
+										<div class="buttona    " style="text-align: center;">
+											<a href="#">Shop Now</a></div>
 									</div>
 								</div>
 							</div>
@@ -26,40 +31,22 @@
 				</div>
 
 				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(./assets/images/home_slider_1.jpg)"></div>
+			 <div class="owl-item home_slider_item">
+					<div class="home_slider_background" [ngStyle]="{'background-image': 'url(' + productsWithRemise[4].pathUrlImage + ')'}"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
 								<div class="col">
 									<div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-										<div class="home_slider_title">A new Online Shop experience.</div>
-										<div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-										<div class="button button_light home_button"><a href="#">Shop Now</a></div>
+										<div class="home_slider_title" >{{productsWithRemise[4].name}}</div>
+										
+										<div class="buttona2 mt-5"><a href="#">Shop Now</a></div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(./assets/images/home_slider_1.jpg)"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-										<div class="home_slider_title">A new Online Shop experience.</div>
-										<div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-										<div class="button button_light home_button"><a href="#">Shop Now</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				</div> 
 
 			</div>
 
@@ -73,7 +60,6 @@
 								<ul id="home_slider_custom_dots" class="home_slider_custom_dots">
 									<li class="home_slider_custom_dot active">01.</li>
 									<li class="home_slider_custom_dot">02.</li>
-									<li class="home_slider_custom_dot">03.</li>
 								</ul>
 							</div>
 						</div>
@@ -82,14 +68,19 @@
 			</div>
 
 		</div>
+	  </span>
 	</div>
-
+	
+	
+	
 	<!-- Products -->
-	<div ><input type="text" ng-model="searchBox"></div>
+	<form  id="filter">
+		<input  class="page_menu_search menu_mm" value="all" class="mt-5" type="text" name="term" [(ngModel)]="term" />
+	</form>
 	<span *ngIf="products">
 		<div class="container" style="margin-top:50px;margin-bottom: 50px">
 			<div class="row">
-					<div class="col-md-3 mb-5" *ngFor="let product of products | filter:searchBox">
+					<div class="col-md-3 mb-5" *ngFor="let product of products | search:term">
 							<a [routerLink]="['/products/', product.id]"><img class="img-responsive" src="{{product.pathUrlImage}}" width="250px" alt="Card image cap"></a>
 					</div>
 				</div>

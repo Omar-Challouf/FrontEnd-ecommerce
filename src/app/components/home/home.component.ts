@@ -9,18 +9,26 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomeComponent implements OnInit {
 
   products:any;
+  productsWithRemise;
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
 
     this.getProduct()
+    this.getProductWithDiscount()
 
 }
 getProduct(){
 
   this.productsService.getProducts()
   .subscribe( (res) =>this.products = res) 
+}
+
+getProductWithDiscount()
+{
+  this.productsService.getProductsWithDiscount()
+  .subscribe((res)=>this.productsWithRemise=res)
 }
   
 }

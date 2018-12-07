@@ -24,4 +24,7 @@ export class ProductsService {
     getCategoryById(id) : Observable<any>{
       return this.http.get('http://localhost:8080/api/ProductsByCategory/' + id);
     }
+    getProductsWithDiscount (): Observable<any> {
+      return this.http.get('http://localhost:8080/api/remise');
+    }
 }
