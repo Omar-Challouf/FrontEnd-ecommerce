@@ -7,7 +7,7 @@ export class SearchPipe implements PipeTransform {
 
   transform(items: any[], term: string): any {
     if(term===undefined){return items;}
-    return items.filter(item => item.name.indexOf(term) !== -1);
+    return items.filter(item => item.name.toLocaleLowerCase().indexOf(term) !== -1);
 }
 
 }

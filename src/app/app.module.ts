@@ -10,6 +10,7 @@ import { ProductsDetailComponent } from './components/products-detail/products-d
 import { CategoryComponent } from './components/category/category.component';
 import { SearchPipe } from './search.pipe';
 import { FormsModule } from '@angular/forms';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     ProductsDetailComponent,
     CategoryComponent,
-    SearchPipe
+    SearchPipe,
+    CartComponent
   ],
   imports: [
     BrowserModule,

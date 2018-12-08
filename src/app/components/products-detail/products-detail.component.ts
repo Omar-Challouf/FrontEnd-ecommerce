@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
+import { CartService } from 'src/app/cart.service';
 
 @Component({
   selector: 'app-products-detail',
@@ -12,13 +13,18 @@ export class ProductsDetailComponent implements OnInit {
   id;
   product;
 
-  constructor(private router:ActivatedRoute, private productService: ProductsService) { 
+  constructor(private router:ActivatedRoute, private productService: ProductsService, private carteService: CartService) { 
   }
 
   ngOnInit() {
       this.id = this.router.snapshot.params['id'];
-      console.log(this.id)
       this.getProduct();
+  }
+ 
+  addToCart(product1)
+  { console.log("bouton works")
+    this.carteService.ajouterCarte(product1);
+    console.log(this.carteService.getLeng());
   }
 
   getProduct() {

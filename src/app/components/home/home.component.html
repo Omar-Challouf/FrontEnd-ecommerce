@@ -11,6 +11,8 @@
 				
 			<!-- Home Slider -->
 			<div class="owl-carousel owl-theme home_slider" >
+					
+				
 				<!-- Slider Item -->
 			 <div class="owl-item home_slider_item">
 					<div class="home_slider_background" [ngStyle]="{'background-image': 'url(' + productsWithRemise[2].pathUrlImage + ')'}"></div>
@@ -75,16 +77,61 @@
 	
 	<!-- Products -->
 	<form  id="filter">
-		<input  class="page_menu_search menu_mm" value="all" class="mt-5" type="text" name="term" [(ngModel)]="term" />
+		<input  class="page_menu_search menu_mm" placeholder="What're you looking for ?" value="all" class="mt-5" type="text" style="float:left" name="term" [(ngModel)]="term" />
 	</form>
 	<span *ngIf="products">
-		<div class="container" style="margin-top:50px;margin-bottom: 50px">
+			<ul class="list">
+					<ul *ngIf="(products | search: term).length === 0">
+							<p class="card__thumb mb-2" >Oooops! We dont have that book yet.</p>
+					</ul>
+					<li *ngFor="let product of products| search:term" class="list-item">
+			<div>
+					<article class="card">
+							<header class="card__thumb">
+									<a href="#"><img src="{{product.pathUrlImage}}"/></a>
+							</header>
+			
+							<div class="card__body">
+			
+			
+									<h2 class="card__title"><a href="#">{{product.name}}</a> </h2>
+								
+									<span *ngIf="product.disponible=='1';then thenBlock else elseBlock"></span>
+									<ng-template #thenBlock ><span style="color:green"> In Stock </span></ng-template>
+									<ng-template #elseBlock><span style="color:red"> Out of the stock </span></ng-template>
+											
+											
+									
+									<div class="card__subtitle">{{product.prix}} TND</div>
+									<div class="card__description">
+									<p> {{product.description}}</p>
+									<a class="btn" [routerLink]="['/products',product.id]">more details</a>
+								</div>
+							</div>
+
+					</article>
+			</div>
+			</li>
+			</ul>
+			
+
+
+
+
+
+
+
+
+
+
+
+		<!-- <div class="container" style="margin-top:50px;margin-bottom: 50px">
 			<div class="row">
-					<div class="col-md-3 mb-5" *ngFor="let product of products | search:term">
+					<div class="col-md-3 mb-5" *ngFor="let product of products ">
 							<a [routerLink]="['/products/', product.id]"><img class="img-responsive" src="{{product.pathUrlImage}}" width="250px" alt="Card image cap"></a>
 					</div>
 				</div>
-		</div>
+		</div> -->
 	</span>
 	<!-- Ad -->
 
@@ -93,10 +140,10 @@
 			<div class="row">
 				<div class="col">
 					<div class="avds_xl_container clearfix">
-						<div class="avds_xl_background" style="background-image:url(./assets/images/avds_xl.jpg)"></div>
+						<div class="avds_xl_background" style="background-image:url(/assets/product_10.png)"></div>
 						<div class="avds_xl_content">
-							<div class="avds_title">Amazing Devices</div>
-							<div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus.</div>
+							<div class="avds_title">new shipments</div>
+							<div class="avds_text"></div>
 							<div class="avds_link avds_xl_link"><a href="categories.html">See More</a></div>
 						</div>
 					</div>
@@ -116,9 +163,7 @@
 					<div class="icon_box">
 						<div class="icon_box_image"><img src="./assets/images/icon_1.svg" alt=""></div>
 						<div class="icon_box_title">Free Shipping Worldwide</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
+
 					</div>
 				</div>
 
@@ -127,9 +172,7 @@
 					<div class="icon_box">
 						<div class="icon_box_image"><img src="./assets/images/icon_2.svg" alt=""></div>
 						<div class="icon_box_title">Free Returns</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
+
 					</div>
 				</div>
 
@@ -138,9 +181,6 @@
 					<div class="icon_box">
 						<div class="icon_box_image"><img src="./assets/images/icon_3.svg" alt=""></div>
 						<div class="icon_box_title">24h Fast Support</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
 					</div>
 				</div>
 
